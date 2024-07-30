@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7c1743; /* Pink background */
+            margin: 0;
+            padding: 0;
+        }
+p{color:white;}
+        header {
+            background-color: #5b0726;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .anime-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            display: flex; /* Use flexbox for layout */
+        }
+
+        .anime-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .anime-card img {
+            width: 40%; /* Adjust image width as needed */
+            height: auto;
+            display: block;
+            object-fit: cover; /* Ensure image fits container */
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .anime-card .info {
+            flex: 1; /* Take remaining space in flex container */
+            padding: 20px;
+            text-align: right; /* Align text to the right */
+            display: flex; /* Nested flexbox for text alignment */
+            flex-direction: column; /* Stack text content vertically */
+            justify-content: space-between; /* Space between lines */
+        }
+
+        .anime-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .anime-card p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .anime-card a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .anime-card a:hover {
+            background-color: #555;
+        }
+
+        .btn-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Top Anime Picks</h1>
+        </div>
+    </header>
+    <main class="container" id="animeList">
+        <div class="btn-container">
+            <button class="btn" onclick="changeAnime('Naruto', 'Shounen TV', 720, 8.5, 'Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.', 'https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/8532171bec0d05bfe45769a330fbab82.jpe')">Naruto</button>
+            <button class="btn" onclick="changeAnime('Pokemon', 'Kids TV', 1000, 7.5, 'Pokemon follows the adventure of a Pokemon Trainer and his team of Pokemon in the fictional region of Kanto.', 'https://i.pinimg.com/474x/67/bc/36/67bc36fe4a5ad62a59b03059b58f57a1.jpg')">Pokemon</button>
+            <button class="btn" onclick="changeAnime('Spy X Family', 'Action Comedy', 24, 9.0, 'Spy X Family follows the story of a spy, assassin, and a telepathic girl who are forced to pose as a family in order to accomplish their missions.', 'https://rukminim2.flixcart.com/image/850/1000/l5bd5zk0/poster/x/u/y/medium-butcutnw14328-spy-x-family-matte-finish-poster-butcute-original-imaggysscsh38pxb.jpeg?q=20&crop=false')">Spy X Family</button>
+        </div>
+<p>Anime is a style of animation popular in Japanese films and television series. It often combines stark, colorful graphics with action-packed plots.
+Anime differs from other forms of animation by its art styles, methods of animation, its production, and its process. Visually, anime works exhibit a wide variety of art styles, differing between creators, artists, and studios.</p>
+      <iframe width="800" height="315" src="https://www.youtube-nocookie.com/embed/zVgKnfN9i34?si=91-t5-MJmlHWiFbm&amp;start=11" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  <div class="anime-card">
+            <img id="animeImage" src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/8532171bec0d05bfe45769a330fbab82.jpe" alt="Anime Image">
+            <div class="info">
+                <h2 id="animeTitle">Naruto</h2>
+                <p>Type: <span id="animeType">Shounen TV</span></p>
+                <p>Episodes: <span id="animeEpisodes">720</span></p>
+                <p>Score: <span id="animeScore">8.5</span></p>
+                <p id="animeDescription">Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.</p>
+                <a href="https://www.imdb.com/title/tt0409591/?ref_=ext_shr_lnk" target="_blank">Read more</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function changeAnime(title, type, episodes, score, description, imageUrl) {
+            document.getElementById('animeTitle').textContent = title;
+            document.getElementById('animeType').textContent = type;
+            document.getElementById('animeEpisodes').textContent = episodes;
+            document.getElementById('animeScore').textContent = score;
+            document.getElementById('animeDescription').textContent = description;
+            document.getElementById('animeImage').src = imageUrl;
+        }
+    </script>
+</body>
+</html>
